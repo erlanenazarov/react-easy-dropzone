@@ -6,7 +6,11 @@ import combineChanges from './combineChanges';
 
 type ReducerFn<T, S> = (state: T | undefined, action: IPayloadAction<S>) => T;
 
-export const applyHandler = <T, S = never>(handlers: THandlers<T, S>, action: IPayloadAction<S>, state: T): T => {
+export const applyHandler = <T, S = never>(
+  handlers: THandlers<T, S>,
+  action: IPayloadAction<S>,
+  state: T,
+): T => {
   if (!has(handlers, action.type)) {
     return state;
   }
@@ -18,6 +22,9 @@ export const applyHandler = <T, S = never>(handlers: THandlers<T, S>, action: IP
   return combineChanges<T, S>(reducerChain, state, action);
 };
 
-export default <T, S = never>(initialState: T, handlers: THandlers<T, S>): ReducerFn<T, S> =>
+export default <T, S = never>(
+    initialState: T,
+    handlers: THandlers<T, S>,
+  ): ReducerFn<T, S> =>
   (state = initialState, action: IPayloadAction<S>): T =>
     applyHandler<T, S>(handlers, action, state);

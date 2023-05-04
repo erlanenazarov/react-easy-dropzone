@@ -5,7 +5,7 @@ export type TActionReturnType<T> = {
 export type TActionFn<T = undefined> = (payload?: T) => TActionReturnType<T>;
 
 const createAction = <T = undefined>(actionType: string): TActionFn<T> => {
-  return (payload) => ({
+  return payload => ({
     type: actionType,
     payload,
   });
