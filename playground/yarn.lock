@@ -1282,14 +1282,10 @@ react-dom@^18.1.0:
     loose-envify "^1.1.0"
     scheduler "^0.23.2"
 
-react-easy-dropzone@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/react-easy-dropzone/-/react-easy-dropzone-2.0.0.tgz#2de9102c2a1b712887dff8c7749e63bfbfec29eb"
-  integrity sha512-Ivk78GUZ3atVf8gx+WN/NFzZ7uAGMUeVAz9ipbW0+FiDFTwKbLiKE0Y+Gbb63FzgR6xeM3Ud/PB8Gm5puBJMlg==
-
-"react-easy-dropzone@file:../react-easy-dropzone-2.0.1.tgz":
+react-easy-dropzone@^2.0.1:
   version "2.0.1"
-  resolved "file:../react-easy-dropzone-2.0.1.tgz#36c11e27c9fddbaffd950c71c506d6dce0c3831b"
+  resolved "https://registry.yarnpkg.com/react-easy-dropzone/-/react-easy-dropzone-2.0.1.tgz#36c11e27c9fddbaffd950c71c506d6dce0c3831b"
+  integrity sha512-fMgvyjCAlWLEZ9ANSh6NM6f8R7YnpAVvyy9y9kc03ig880rhu0/ql6qujeoa46Dv001eyUaMANf9beCXJCaKgQ==
 
 react-refresh@^0.16.0:
   version "0.16.0"
