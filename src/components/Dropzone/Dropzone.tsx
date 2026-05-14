@@ -264,7 +264,7 @@ export const Dropzone = (props: DropzoneProps) => {
         {!hasFiles ? (
           <div className="rzd-placeholder">{texts.placeholder}</div>
         ) : (
-          <div className="rzd-tiles" onClick={event => event.stopPropagation()}>
+          <div className="rzd-tiles">
             {entries.map((entry, index) => (
               <FileTile
                 key={entry.id}

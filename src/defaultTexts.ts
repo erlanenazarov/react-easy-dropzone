@@ -9,4 +9,8 @@ export const defaultTexts: DropzoneTexts = {
   galleryNext: 'Next',
   invalidType: 'File type is not allowed',
   invalidSize: 'File is too large',
+  uploadRetry: 'Retry upload',
+  uploadCancel: 'Cancel upload',
+  uploadFailed: 'Upload failed',
+  uploadingLabel: 'Uploading',
 };

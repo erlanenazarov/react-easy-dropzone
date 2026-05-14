@@ -6,3 +6,14 @@ node_modules
 .vscode
 
 yarn-error.log
+
+# secrets
+.env
+.env.local
+
+# AI
+.cursor
+.claude
+
+# Cache
+.parcel-cache

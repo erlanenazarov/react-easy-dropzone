@@ -1,0 +1,18 @@
+{
+  "include": ["src", "../src"],
+  "exclude": ["node_modules", "dist", "../src/**/*.test.ts", "../src/**/*.test.tsx"],
+  "compilerOptions": {
+    "target": "ES2019",
+    "module": "esnext",
+    "lib": ["dom", "esnext"],
+    "strict": true,
+    "moduleResolution": "node",
+    "ignoreDeprecations": "6.0",
+    "jsx": "react-jsx",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+    "noEmit": true
+  }
+}

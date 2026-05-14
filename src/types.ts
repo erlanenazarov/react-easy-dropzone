@@ -22,6 +22,10 @@ export interface DropzoneTexts {
   galleryNext: string;
   invalidType: string;
   invalidSize: string;
+  uploadRetry: string;
+  uploadCancel: string;
+  uploadFailed: string;
+  uploadingLabel: string;
 }
 
 export interface GalleryItem {
@@ -47,6 +51,7 @@ export interface TileRenderProps {
   remove: () => void;
   openInGallery?: () => void;
   texts: DropzoneTexts;
+  uploadState?: TileUploadState;
 }
 
 export type RenderTile = (props: TileRenderProps) => ReactNode;
@@ -87,4 +92,76 @@ export interface ResolvedSettings {
   enableFullscreenGallery: boolean;
   renderGallery?: RenderGallery;
   renderTile?: RenderTile;
+}
+
+export type UploadStatus =
+  | 'idle'
+  | 'uploading'
+  | 'success'
+  | 'error'
+  | 'cancelled';
+
+export interface UploadOneContext {
+  onProgress: (progress: number) => void;
+  signal: AbortSignal;
+}
+
+export interface UploadManyContext {
+  onProgress: (total: number) => void;
+  signal: AbortSignal;
+}
+
+export type UploadOneHandler<T> = (
+  file: File,
+  ctx: UploadOneContext,
+) => Promise<T>;
+
+export type UploadManyHandler<T> = (
+  files: File[],
+  ctx: UploadManyContext,
+) => Promise<T[]>;
+
+export interface UploadConfigSingle<T> {
+  mode: 'single';
+  handler: UploadOneHandler<T>;
+  failFast?: boolean;
+  toRemoteFile?: (result: T, file: File) => RemoteFile | null;
+}
+
+export interface UploadConfigParallel<T> {
+  mode: 'parallel';
+  handler: UploadOneHandler<T>;
+  toRemoteFile?: (result: T, file: File) => RemoteFile | null;
+}
+
+export interface UploadConfigBatch<T> {
+  mode: 'batch';
+  handler: UploadManyHandler<T>;
+  chunkSize?: number;
+  toRemoteFile?: (result: T, file: File) => RemoteFile | null;
+}
+
+export type UploadConfig<T> =
+  | UploadConfigSingle<T>
+  | UploadConfigParallel<T>
+  | UploadConfigBatch<T>;
+
+export interface UploadEntryState<T = unknown> {
+  id: string;
+  file: DropzoneFile;
+  status: UploadStatus;
+  progress: number;
+  result?: T;
+  error?: Error;
+  retry?: () => void;
+  cancel?: () => void;
+}
+
+export interface TileUploadState<T = unknown> {
+  status: UploadStatus;
+  progress: number;
+  error?: Error;
+  result?: T;
+  retry?: () => void;
+  cancel?: () => void;
 }
