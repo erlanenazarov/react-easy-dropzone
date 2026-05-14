@@ -2,7 +2,11 @@
   "transform": {
     "^.+\\.(t|j)sx?$": "ts-jest"
   },
-  "testPathIgnorePatterns": ["/node_modules/", "dist"],
+  "testPathIgnorePatterns": ["/node_modules/", "dist", "example"],
+  "moduleNameMapper": {
+    "\\.css$": "<rootDir>/src/__mocks__/styleMock.js"
+  },
   "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json", "node"],
-  "testEnvironment": "jsdom"
+  "testEnvironment": "jsdom",
+  "setupFilesAfterEach": []
 }

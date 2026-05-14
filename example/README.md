@@ -1,11 +1,12 @@
-# How to start example page?
+# Playground
 
-Then in the example directory, run all dependencies:
+A local Parcel app to try the library during development.
 
-### `yarn install`
+```bash
+yarn build           # build the library at the repo root first
+cd example
+yarn install
+yarn start           # http://localhost:1234
+```
 
-Then use the command:
-
-### `yarn start`
-
-Open [http://localhost:1234](http://localhost:1234) to view it in the browser.
+The example consumes the library via `link:..`, so a rebuild of the root package is needed after any source change (or run `yarn dev` at the root in watch mode).

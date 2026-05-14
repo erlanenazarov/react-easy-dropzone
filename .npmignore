@@ -1,8 +1,0 @@
-src
-demo
-.babelrc
-webpack.config.js
-.idea
-.vscode
-tsconfig.json
-.prettierrc

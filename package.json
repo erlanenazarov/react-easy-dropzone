@@ -1,19 +1,40 @@
 {
   "name": "react-easy-dropzone",
-  "version": "1.0.0",
-  "description": "Fully customizable react dropzone component",
-  "main": "./dist/cjs/index.js",
-  "module": "./dist/esm/index.js",
-  "types": "./dist/esm/index.d.ts",
+  "version": "0.1.0",
+  "description": "Fully customizable, zero-dependency React dropzone with built-in tiles, lightbox and CSS-variable theming.",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    },
+    "./style.css": "./dist/style.css",
+    "./package.json": "./package.json"
+  },
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md"
+  ],
   "scripts": {
-    "build": "yarn build:esm && yarn build:cjs",
-    "build:esm": "tsc",
-    "build:cjs": "tsc --module commonjs --outDir dist/cjs",
-    "lint": "eslint \"{**/*,*}.{js,ts,jsx,tsx}\"",
-    "prettier": "prettier --write \"{src,tests,example/src}/**/*.{js,ts,jsx,tsx}\"",
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint \"src/**/*.{ts,tsx}\"",
     "test": "jest --config jestconfig.json",
-    "prepare": "npm run build",
-    "prepublishOnly": "npm test && npm run prettier && npm run lint"
+    "prepublishOnly": "yarn typecheck && yarn lint && yarn test && yarn build"
   },
   "repository": {
     "type": "git",
@@ -22,15 +43,13 @@
   "keywords": [
     "react",
     "dropzone",
-    "react",
-    "dropzone",
-    "gallery",
-    "slider",
-    "image",
-    "slider",
-    "image",
+    "file-upload",
     "uploader",
-    "uploader"
+    "drag-and-drop",
+    "image-preview",
+    "lightbox",
+    "gallery",
+    "typescript"
   ],
   "author": "erlanenazarov",
   "license": "MIT",
@@ -38,12 +57,20 @@
     "url": "https://github.com/erlanenazarov/react-easy-dropzone/issues"
   },
   "homepage": "https://github.com/erlanenazarov/react-easy-dropzone#readme",
+  "engines": {
+    "node": ">=16"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
   "devDependencies": {
     "@testing-library/react": "^13.3.0",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/user-event": "^14.4.3",
     "@types/jest": "^28.1.1",
-    "@types/lodash.has": "^4.5.7",
-    "@types/lodash.isarray": "^4.0.7",
     "@types/react": "^18.0.12",
+    "@types/react-dom": "^18.0.5",
     "@typescript-eslint/eslint-plugin": "^5.27.1",
     "@typescript-eslint/parser": "^5.27.1",
     "eslint": "^8.17.0",
@@ -52,34 +79,18 @@
     "eslint-plugin-react": "^7.30.0",
     "eslint-plugin-react-hooks": "^4.5.0",
     "jest": "^28.1.1",
-    "jest-canvas-mock": "^2.4.0",
     "jest-environment-jsdom": "^28.1.1",
-    "node-sass": "^8.0.0",
     "prettier": "^2.6.2",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "ts-jest": "^28.0.4",
+    "tsup": "^7.2.0",
     "typescript": "^4.7.3"
   },
-  "peerDependencies": {
-    "react": "^18.1.0",
-    "react-dom": "^18.1.0"
-  },
-  "files": [
-    "dist",
-    "LICENSE",
-    "README.md"
-  ],
   "browserslist": [
     ">0.2%",
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ],
-  "dependencies": {
-    "clsx": "^1.2.1",
-    "immutable": "^4.3.0",
-    "lodash.has": "^4.5.2",
-    "lodash.isarray": "^4.0.0"
-  }
+  ]
 }
