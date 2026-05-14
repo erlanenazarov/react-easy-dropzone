@@ -8,8 +8,8 @@ import {
   type UploadDropzoneHandle,
   type UploadManyContext,
   type UploadOneContext,
-} from '../../src';
-import '../../src/styles.css';
+} from 'react-easy-dropzone';
+import 'react-easy-dropzone/style.css';
 
 import './playground.css';
 

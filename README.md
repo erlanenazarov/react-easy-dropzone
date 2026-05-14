@@ -9,6 +9,11 @@ A small, dependency-free React dropzone that handles file selection, drag & drop
 - Built-in minimal lightbox, replaceable via the `renderGallery` prop.
 - All strings are exposed for translation through a single `texts` object.
 - Shared defaults via `DropzoneSettingsProvider`, per-instance overrides via props.
+- Optional `<UploadDropzone>` + `useDropzoneUpload` hook with built-in progress, retry, cancel and configurable upload modes (`single` / `parallel` / `batch`).
+
+## Demo
+
+👉 **[Live playground](https://erlanenazarov.github.io/react-easy-dropzone/)** — interactive examples of every mode, with toggles for `autoUpload`, `multi`, `disabled`, `removeOnError`, plus imperative `start()` / `abortAll()` controls.
 
 ## Install
 
