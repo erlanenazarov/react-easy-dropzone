@@ -1,6 +1,6 @@
 {
   "name": "react-easy-dropzone",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "Fully customizable, zero-dependency React dropzone with built-in tiles, lightbox and CSS-variable theming.",
   "type": "module",
   "main": "./dist/index.cjs",
